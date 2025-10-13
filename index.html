@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+		<meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="styles/style.css"/>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+ 
+		<title>My Portfolio</title>
+</head>
+<body>
+
+		<nav>
+				<h2>Portfolio</h2>
+		
+				<ul class="links"> 
+						<li><a href=#home class="active">Home</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#gallery">Gallery</a></li>
+						<li><a href="#contacts">Contacts</a></li>
+				</ul>
+		</nav>
+<header id="home">
+  <div class="hero">
+    <div class="hero-content">
+      <h1>Hi! I’m <span class="highlight">Carl Angelo Ibañez</span></h1>
+      <p>A Computer Science student passionate about <span class="accent">technology</span> and <span class="accent">coding</span>.</p>
+      
+      <div class="hero-buttons">
+        <a href="#about" class="hero-btn primary">Explore My Work</a>
+        <a href="resume.html" class="hero-btn secondary" target="_blank">View Resume</a>
+      </div>
+    </div>
+  </div>
+</header>
+		
+		<section id="about"data-animate>
+				<div class="card-about">
+	 			<h2>About Me</h2><br>
+ 				<p>Hi, I am <span>Carl Angelo Ibañez</span>. I am from Zamboanguita
+	 					Negros Oriental Philippines. I am a Computer Science student
+ 						of Metro Dumaguete College. I chose the Computer Science
+ 						course because I think that this course will help
+ 						me in the future. I am currently learning how to code in
+ 						Java, Python, HTML, CSS, and JavaScript which are the
+ 						language taught by the professors. I enjoy coding, reading, 
+ 						and, playing mobile games.
+	 			</p>
+				</div>
+		</section>
+		
+<section id="skills"data-animate>
+		<div class="card-skills">
+ 		<h2>Skills</h2>
+ 		<div class="skills-list">
+      <p>HTML</p>
+      <div class="skill-bar"><span style="width:100%"></span></div>
+				    <p>CSS</p>
+      <div class="skill-bar"><span style="width:70%"></span></div>
+      <p>Java</p>
+      <div class="skill-bar"><span style="width:80%"></span></div>
+      <p>Python</p>
+      <div class="skill-bar"><span style="width:70%"></span></div>
+		 </div>
+</section>
+
+<section id="gallery"data-animate>
+		<div class="card-gallery">
+		<h2>Gallery</h2>
+ 		<div class="container">
+ 				<img class="image" src="images/img1.jpg">
+ 				<img class="image" src="images/img2.jpg">
+ 				<img class="image"src="images/img3.jpg">
+	 			<img class="image"src="images/img4.jpg">
+	 			<img class="image"src="images/img5.jpg">
+	 	</div>
+		</div>
+</section>
+
+<section id="contacts" data-animate>
+  <div class="card-contacts">
+    <h2>Contacts</h2>
+
+    <div class="contact-wrapper">
+      <div class="contact-info">
+        <h3>Get in Touch</h3>
+        <p><i class="fa-solid fa-location-dot"></i> Zamboanguita, Negros Oriental, Philippines</p>
+        <p><i class="fa-solid fa-phone"></i> +63 912 345 6789</p>
+        <p><i class="fa-solid fa-envelope"></i> carl.ibanez@email.com</p>
+        <p><i class="fa-brands fa-facebook"></i> facebook.com/carlangelo.ibanez</p>
+      </div>
+
+      
+      <div class="form-container">
+        <form class="floating-form">
+          <div class="form-group">
+            <input type="text" id="name" placeholder=" " required>
+            <label for="name">Name</label>
+          </div>
+
+          <div class="form-group">
+            <input type="email" id="email" placeholder=" " required>
+            <label for="email">Email</label>
+          </div>
+
+          <div class="form-group">
+            <textarea id="message" rows="4" placeholder=" " required></textarea>
+            <label for="message">Message</label>
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="footer">
+	<footer>
+    <div class="social-icons">
+      <a href="#"><i class="fa-brands fa-facebook"></i></a>
+      <a href="#"><i class="fa-brands fa-twitter"></i></a>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    <p>© 2025 Carl Angelo Ibañez. All Rights Reserved.</p>
+  </footer>
+
+</section>
+		<script>
+		document.addEventListener('DOMContentLoaded', function() {
+      const container = document.querySelector('.container');
+
+      function autoScroll() {
+        container.scrollLeft += 0.5;
+        if (container.scrollLeft >= container.scrollWidth - container.offsetWidth) {
+          container.scrollLeft = 1;
+        }
+        requestAnimationFrame(autoScroll);
+      }
+
+      autoScroll();
+    });
+		
+		document.querySelector('.image').addEventListener('click', function() {
+  this.classList.add('clicked');
+  setTimeout(() => {
+    this.classList.remove('clicked');
+  }, 200);
+});
+		
+		const sections = document.querySelectorAll('section, header');
+    const navLinks = document.querySelectorAll('.links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 150;
+        const height = sec.clientHeight;
+        if (pageYOffset >= top && pageYOffset < top + height) {
+          current = sec.getAttribute('id');
+        }
+      });
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    
+    const animated = document.querySelectorAll('[data-animate]');
+    const reveal = () => {
+      animated.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', reveal);
+    reveal();
+  </script>
+</script>
+</body>
+</html>
