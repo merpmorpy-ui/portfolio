@@ -5,13 +5,41 @@
 		font-family: 'Courier New', monospace;
 }
 html{
-		
 		scroll-behavior: smooth;
 }
 body{
 		background-color: #1d2549;
+  line-height: 1.6;
 }
 
+h1 {
+  font-size: clamp(2rem, 4vw + 0.5rem, 3.5rem);
+  font-weight: 700;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 2.5vw + 0.3rem, 2.2rem);
+  font-weight: 600;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.8vw + 0.2rem, 1.6rem);
+}
+
+p {
+  font-size: clamp(1rem, 1.2vw + 0.2rem, 1.2rem);
+  
+}
+
+button, .hero-btn {
+  font-size: clamp(0.9rem, 1vw + 0.2rem, 1.1rem);
+}
+
+
+nav ul li a {
+  font-size: clamp(0.9rem, 1vw + 0.1rem, 1.1rem);
+  font-weight: 500;
+}
 
 
 nav{
@@ -26,9 +54,9 @@ nav{
   display:flex;
   justify-content: space-between;
   align-items: center;
-  border-radius: 12px;
-  margin: 10px;
+  
 }
+
 nav h2{
 		color: #bdf347;
 }
@@ -58,7 +86,7 @@ nav ul li a.active,
   position: relative;
   height: 100vh;
   background: 
-    linear-gradient(rgba(9, 16, 43, 0.85), rgba(9, 16, 43, 0.95)),
+    
     url("images/me.jpg") center/cover no-repeat;
   display: flex;
   justify-content: center;
@@ -66,6 +94,7 @@ nav ul li a.active,
   text-align: center;
   color: #fff;
   overflow: hidden;
+		min-height: 450px;
 }
 
 
@@ -76,8 +105,8 @@ nav ul li a.active,
   left: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle at 30% 30%, rgba(189, 243, 71, 0.2), transparent 70%);
-  animation: floatGlow 10s ease-in-out infinite alternate;
+  background: radial-gradient(circle at 30% 30%, rgba(189, 243, 71, 0.2), transparent 50%);
+  
   z-index: 1;
 }
 
@@ -117,19 +146,21 @@ nav ul li a.active,
 .hero-btn {
   display: inline-block;
   padding: 14px 35px;
+		margin: 5px;
   border-radius: 30px;
-  background-color: #bdf347;
-  color: #09102b;
+  background-color: #09102b;
+  color: #fff;
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
-  box-shadow: 0 0 15px rgba(189, 243, 71, 0.4);
+  border: 1px solid #bdf347;
 }
 
 .hero-btn:hover {
   background-color: #d4ff62;
+		color:  #09102b;
   box-shadow: 0 0 25px rgba(189, 243, 71, 0.8);
-  transform: scale(1.08);
+  
 }
 
 
@@ -157,11 +188,11 @@ nav ul li a.active,
 		text-align: center;
 		color: #bdf347;
 		font-size: 2.5vw;
-		padding: 40px;
+		padding: 80px 20px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 600px;
+		height: auto;
 }
 #about h2::after {
   content: "";
@@ -174,21 +205,22 @@ nav ul li a.active,
 
 .card-about{
 		padding: 20px;
-		width: 70vw;
+		width: 90vw;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 #skills{
-		height: 500px;
-		padding: 40px;
+		height:auto;
+		padding: 80px 20px;
 		text-align: center;
 		color: #bdf347;
 		font-size: 2.5vw;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		
 }
 #skills h2::after {
   content: "";
@@ -219,7 +251,7 @@ nav ul li a.active,
 }
 .card-skills{
 		padding: 20px;
-		width: 70vw;
+		width: 90vw;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -227,8 +259,8 @@ nav ul li a.active,
 }
 
 #gallery{
-		height: 500px;
-		padding: 40px;
+		height: auto;
+		padding: 80px 20px;
 		text-align: center;
 		color: #bdf347;
 		font-size: 2.5vw;
@@ -244,7 +276,9 @@ nav ul li a.active,
   display: block;
   margin: 8px auto 0;
 }
-
+img{
+		width: 90%;
+}
 .container {
 		display: flex;
   overflow-x: auto;
@@ -253,8 +287,8 @@ nav ul li a.active,
 
 .container img {
   border-radius: 10px;
-  width: 230px;
-  height: 200px;
+  width: 300px;
+  height: 250px;
   object-fit: cover;
 		 margin: 10px;
 		transition: transform 0.5s;
@@ -268,7 +302,7 @@ nav ul li a.active,
 
 .card-gallery{
 		padding: 20px;
-		width: 70vw;
+		width: 90vw;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -277,23 +311,30 @@ nav ul li a.active,
 
 
 #contacts{
-		padding: 40px;
+		padding: 80px 20px;
 		text-align: center;
 		color: #bdf347;
 		font-size: 2.5vw;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		
+		height: auto;
 }
 .form-container{
 		display: flex;
 		justify-content: center;
 		padding: 20px;
+		height: auto;
+		
+		
+		
 }
 form{
+		
 		background-color: #09102b;
-		padding: 34px 20px;
-		width: 450px;
+		padding: 40px 20px;
+		width: 90vw;
 		background-size: contain;
 		border-radius: 25px;
 		box-shadow: 0 0 13px #bdf347;
@@ -327,23 +368,23 @@ input, textarea {
       transition: 0.3s;
     }
 
-    button:hover {
-      transform: scale(1.05);
-    }
+    
 
 .card-contacts{
-		padding: 20px;
-		width: 70vw;
+		padding: 10px;
+		width: 90vw;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   overflow: hidden;
+		display: flex;
+		flex-direction: column;
 }
 
 
 .floating-form {
-  max-width: 400px;
-  margin: 40px auto;
+  
+  margin: 20px;
   padding: 20px;
   background-color: #09102b;
   border: 1px solid #bdf347;
@@ -354,6 +395,7 @@ input, textarea {
 .form-group {
   position: relative;
   margin-bottom: 25px;
+		
 }
 
 .form-group input,
@@ -361,7 +403,7 @@ input, textarea {
   padding: 15px 10px;
   border: 1px solid #bdf347;
   border-radius: 10px;
-  width: 100%;
+  width: 95%;
   font-size: 16px;
   background: transparent;
   color: #fff;
@@ -371,7 +413,7 @@ input, textarea {
 .form-group label {
   position: absolute;
   top: 40%;
-  left: 15px;
+  left: 20px;
   transform: translateY(-50%);
   transition: all 0.3s ease;
   pointer-events: none;
@@ -393,39 +435,39 @@ input, textarea {
 
 button[type="submit"] {
   padding: 15px 20px;
-  background-color: #bdf347;
-  color: #09102b;
-  border: none;
+  background-color: #09102b;
+  color: #d4ff62;
+  border: 1px solid ;
   border-radius: 25px;
   cursor: pointer;
   transition: 0.3s;
   font-weight: bold;
-  width: 100%;
+  width: 90%;
 }
 
 button[type="submit"]:hover {
-  transform: scale(1.05);
+  color: #09102b;
   background-color: #d4ff62;
 }
 
 .contact-wrapper {
   display: flex;
   justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
+  align-items: center;
+  flex-direction: column;
+  
   margin-top: 30px;
 }
 
 .contact-info {
   flex: 1;
-  min-width: 250px;
-  max-width: 400px;
+  min-width: 360px;
+  width: 90%;
   background: #09102b;
   border: 1px solid #bdf347;
   border-radius: 15px;
   box-shadow: 0 0 15px rgba(189, 243, 71, 0.2);
-  padding: 25px;
+  padding: 20px;
   color: #fff;
   transition: all 0.3s ease;
 }
@@ -443,6 +485,7 @@ button[type="submit"]:hover {
 }
 
 .contact-info p {
+		color: #bdf347;
   margin: 10px 0;
   font-size: 1rem;
   display: flex;
@@ -526,7 +569,7 @@ footer {
  
 [data-animate].visible .card-about,
 [data-animate].visible .card-skills,
-[data-animate]. .card-gallery,
+[data-animate].visible .card-gallery,
 [data-animate].visible .card-contacts {
   animation: fadeUp 0.8s ease forwards;
 }
